@@ -17,6 +17,7 @@ def choose(cams, cfg_markers):
         uv = Xc[:, :2] / np.maximum(z, 1e-9)[:, None] * k["K"][0, 0] + k["K"][:2, 2]
         rad = k["K"][0, 0] * r / np.maximum(z, 1e-9)
         pad = 2 * rad + 8
+        inimg = (z > 0.05) & (uv[:, 0] > -pad) & (uv[:, 0] < k["W"] + pad) & (uv[:, 1] > -pad) & (uv[:, 1] < k["H"] + pad)
         vis = (z > 0.3) & (uv[:, 0] > pad) & (uv[:, 0] < k["W"] - pad) & (uv[:, 1] > pad) & (uv[:, 1] < k["H"] - pad)
         vis &= rad <= m.get("max_radius_px", 12.0)
         # perspective bias: the image of a sphere is an ellipse whose centroid is not the
@@ -29,23 +30,26 @@ def choose(cams, cfg_markers):
             cen = np.linalg.solve(A[:2, :2], -A[:2, 2])
             bias[j] = k["K"][0, 0] * np.linalg.norm(cen - x[:2] / x[2])
         vis &= bias <= m.get("max_bias_px", 0.02)
-        proj.append((uv, vis))
+        proj.append((uv, vis, inimg))
     chosen = []
     per_cam = [[] for _ in cams]
-    order = np.argsort(-sum(v.astype(int) for _, v in proj), kind="stable")  # visible in many cameras first
+    # a marker anywhere near an image must be fully usable there (else validation would
+    # measure a biased, truncated or oversized blob)
+    usable = np.all([(~inimg) | vis for _, vis, inimg in proj], axis=0)
+    order = np.argsort(-sum(v.astype(int) for _, v, _ in proj), kind="stable")  # visible in many cameras first
     for j in order:
         if len(chosen) >= m["count"]:
             break
-        if not any(v[j] for _, v in proj):
+        if not usable[j] or not any(v[j] for _, v, _ in proj):
             continue
         ok = True
-        for c, (uv, vis) in enumerate(proj):
+        for c, (uv, vis, _) in enumerate(proj):
             if vis[j] and per_cam[c] and np.min(np.linalg.norm(uv[per_cam[c]] - uv[j], axis=1)) < sep:
                 ok = False
                 break
         if ok:
             chosen.append(j)
-            for c, (_, vis) in enumerate(proj):
+            for c, (_, vis, _) in enumerate(proj):
                 if vis[j]:
                     per_cam[c].append(j)
     counts = [len(p) for p in per_cam]
