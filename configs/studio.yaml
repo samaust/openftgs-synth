@@ -38,7 +38,7 @@ sync:
 render:
   samples: 32
   denoise: true
-  denoise_gpu: false
+  denoise_gpu: true         # owner decision 2026-10-13: GPU OIDN (repeat renders differ by <= 115/65535)
   marker_samples: 384
 layouts:
   - {layout: selfcap, frames: distorted}

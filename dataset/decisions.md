@@ -6,17 +6,20 @@
 - **Background images are undistorted** (pinhole geometry), like all ground-truth images.
 - **The `tiny` selfcap form is a separate render** (`tiny_unsync`). The n3dv layout needs
   synchronized cameras, so one render cannot serve both.
-- **Undistort round trip on `tiny*`:** at 160x120 cv2.undistort's own bilinear resampling
-  costs more than a few 8-bit levels. Check 2 compares those scenes with the bilinear floor
-  measured on the same images, and reports the half-pixel-shifted error as a sensitivity
-  control.
+- **Undistort round-trip rule (owner decision).** cv2.undistort's own bilinear
+  resampling costs about 2-3 levels on these textures at 1080p and more at 160x120. A
+  scene passes check 2 when the median difference is at most 1, the mean is at most the
+  bilinear floor measured on the same frames, and moving the principal point by half a
+  pixel makes the mean at least 1.2x worse.
 - **Video colour:** BT.709 matrix, limited range. The transfer is tagged sRGB, which is
   what the frames contain.
 - **Character:** "Animated Human" by Quaternius (CC0) ships without textures. It is dressed
   with CC0 Poly Haven fabric textures by rest-pose height bands (trousers, shirt, skin).
 - **Cloth** is Blender cloth, baked once per scene with a fixed wind-gust sequence. Sub-frame
   times use Blender's cache interpolation.
-- **Denoiser on the CPU.** OpenImageDenoise runs on the CPU with fixed settings, because
-  GPU denoising made repeated renders differ by up to 115/65535. With the CPU, repeats
-  differ by at most 1/65535 in 16 bit. The GPU path tracer is not bit-exact on its own.
+- **Denoiser on the GPU (owner decision).** OpenImageDenoise runs on the GPU with fixed
+  settings, so repeated renders of a frame can differ by up to 115/65535 in 16 bit (under
+  half an 8-bit level). CPU denoising would cap that at 1/65535 but would take about
+  158 h instead of about 46 h. The GPU path tracer is not bit-exact on its own either.
+- **Depth is float32 (owner decision).**
 - **Persistent data** is on within each per-camera Blender process (static BVH reused).

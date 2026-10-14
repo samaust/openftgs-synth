@@ -32,12 +32,11 @@ lens:
 render:
   samples: 64
   denoise: true
-  denoise_gpu: false        # CPU OIDN: repeat renders differ by <= 1/65535 (GPU OIDN: up to 115/65535)
+  denoise_gpu: true         # owner decision 2026-10-13: GPU OIDN (repeat renders differ by <= 115/65535)
   marker_samples: 512
 layouts:
   - {layout: n3dv, frames: pinhole}
   - {layout: enerf_outdoor, frames: distorted}
-validation_v2: resolution_floor   # 160x120: cv2.undistort's bilinear blur alone exceeds a few levels
 markers:            # emissive validation spheres (hidden in normal renders)
   box: [[-2.2, 2.2], [-0.8, 1.9], [0.05, 2.3]]
   radius: 0.03

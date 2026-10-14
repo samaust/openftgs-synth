@@ -195,12 +195,12 @@ def check_undistort(sc, step=None, border=3):
            "mean_abs_if_principal_point_off_by_half_pixel": float(h.mean()),
            "bilinear_floor_mean_abs": float(fl.mean()),
            "border_px_excluded": border, "frame_step": step, "per_camera": per_cam}
-    few_levels = out["mean_abs"] <= 2.0 and out["median"] <= 1.0
-    at_floor = (sc.cfg.get("validation_v2") == "resolution_floor" and out["mean_abs"] <= out["bilinear_floor_mean_abs"])
+    # owner decision 2026-10-13: floor-relative rule for every scene
+    at_floor = out["median"] <= 1.0 and out["mean_abs"] <= out["bilinear_floor_mean_abs"]
     aligned = out["mean_abs_if_principal_point_off_by_half_pixel"] >= 1.2 * out["mean_abs"]
-    out["criterion"] = "mean<=2 and median<=1" if sc.cfg.get("validation_v2") != "resolution_floor" else \
-        "mean <= bilinear floor (low-resolution scene), and the half-pixel-shifted comparison is >=1.2x worse"
-    out["pass"] = bool(aligned and (few_levels or at_floor))
+    out["criterion"] = ("median <= 1, mean <= bilinear floor of the same frames, and the half-pixel-shifted "
+                        "comparison >= 1.2x worse")
+    out["pass"] = bool(aligned and at_floor)
     return out
 
 

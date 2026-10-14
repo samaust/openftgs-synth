@@ -67,5 +67,6 @@ It runs one Blender process per camera.
 - Keys inserted from Python ignore the interpolation preference in 5.2, so interpolation is
   set on each key.
 - Determinism: fixed samples, seed, no adaptive sampling, dithering 0. The OIDN denoiser
-  runs on the CPU. A repeated render then differs by at most 1/65535 in 16 bit; with GPU
-  OIDN it differs by up to 115/65535 (`tools/determinism_check.py`).
+  runs on the GPU, the owner's choice for speed. A repeated render can differ by up to
+  115/65535 in 16 bit; CPU OIDN would cap that at 1/65535 (`render: denoise_gpu: false`,
+  measured with `tools/determinism_check.py`).
