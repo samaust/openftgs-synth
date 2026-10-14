@@ -16,3 +16,7 @@
   with CC0 Poly Haven fabric textures by rest-pose height bands (trousers, shirt, skin).
 - **Cloth** is Blender cloth, baked once per scene with a fixed wind-gust sequence. Sub-frame
   times use Blender's cache interpolation.
+- **Denoiser on the CPU.** OpenImageDenoise runs on the CPU with fixed settings, because
+  GPU denoising made repeated renders differ by up to 115/65535. With the CPU, repeats
+  differ by at most 1/65535 in 16 bit. The GPU path tracer is not bit-exact on its own.
+- **Persistent data** is on within each per-camera Blender process (static BVH reused).

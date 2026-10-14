@@ -153,9 +153,10 @@ def check_undistort(sc, step=None, border=3):
             bgr = np.ascontiguousarray(fr[..., ::-1])
             ref = cv2.imread(os.path.join(sc.gt, "pinhole", c["name"], f"{n:06d}.png"))
             und = cv2.undistort(bgr, K, D)
-            cd.append(np.abs(und.astype(np.int16) - ref.astype(np.int16))[valid].reshape(-1))
+            sub = max(1, int(valid.sum()) * 3 // 200_000)  # cap memory: <= ~200k values per frame
+            cd.append(np.abs(und.astype(np.int16) - ref.astype(np.int16))[valid].reshape(-1)[::sub])
             undh = cv2.undistort(bgr, Kh, D, newCameraMatrix=K)
-            ch.append(np.abs(undh.astype(np.int16) - ref.astype(np.int16))[valid].reshape(-1))
+            ch.append(np.abs(undh.astype(np.int16) - ref.astype(np.int16))[valid].reshape(-1)[::sub])
             if n == 0:
                 floor.append(_bilinear_floor(ref))
         cd, ch = np.concatenate(cd), np.concatenate(ch)
@@ -405,11 +406,25 @@ def check_sha256sums(root=DATA):
 # ---------------------------------------------------------------- videos
 
 def check_videos(sc):
+    """ffprobe every video, including the ones inside the selfcap release archive (extracted
+    to a temporary directory and compared byte-for-byte with the staged copies)."""
     paths = []
+    tmp = None
     for lay in sc.layouts:
         for i in range(len(sc.cams)):
             for ll in (False, True):
-                paths.append(sc.video_paths(lay["layout"], i, ll))
+                p = sc.video_paths(lay["layout"], i, ll)
+                if lay["layout"] == "selfcap" and not ll:
+                    if tmp is None:
+                        tmp = tempfile.mkdtemp(prefix="vid_", dir=sc.work)
+                        with tarfile.open(os.path.join(DATA, "selfcap", f"{sc.seq()}-release.tar.gz")) as tf:
+                            tf.extractall(tmp, members=[m for m in tf.getmembers() if m.name.endswith(".mp4")],
+                                          filter="data")
+                    q = os.path.join(tmp, f"{sc.seq()}-release", "videos", os.path.basename(p))
+                    if open(q, "rb").read() != open(p, "rb").read():
+                        return {"pass": False, "error": f"archive member differs from staged video {q}"}
+                    p = q
+                paths.append(p)
     bad = []
     for p in paths:
         s = encode.probe(p)

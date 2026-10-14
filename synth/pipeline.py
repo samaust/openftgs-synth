@@ -203,71 +203,81 @@ def run_blender(sc, jobs, tag, on_done=None):
 
 
 def render(sc, workers=12, cams=None, frames=None, encode_videos=True, tag="main", kinds=None):
-    """Render all outstanding jobs, post-process them as they finish, encode each camera's videos
-    once its frames are complete."""
+    """Render all outstanding jobs (one Blender process per camera), post-process them as they
+    finish, and encode each camera's videos once its frames are complete. Resumable: finished
+    jobs and encodes are recorded in <work>/done.txt."""
     kinds = kinds or ("rgb", "aux", "bg", "markers", "clock")
     jobs = make_jobs(sc, kinds=kinds, cams=cams, frames=frames)
     done = load_done(sc)
     todo = [j for j in jobs if j["id"] not in done]
-    print(f"[{sc.name}] {len(todo)} of {len(jobs)} jobs to render")
+    print(f"[{sc.name}] {len(todo)} of {len(jobs)} jobs to render", flush=True)
     by_id = {j["id"]: j for j in jobs}
     per_cam_rgb = {}
     for j in jobs:
         if j["kind"] == "rgb":
             per_cam_rgb.setdefault(j["cam"], set()).add(j["id"])
     rgb_done = {c: {i for i in ids if i in done} for c, ids in per_cam_rgb.items()}
-    encoded = set()
     dlog = open(_done_log(sc), "a")
     t_start = time.time()
     futures = {}
     enc_pool = cf.ThreadPoolExecutor(max_workers=4)
-    enc_futs = []
+    enc_futs = {}
+
+    def mark(jid):
+        dlog.write(jid + "\n")
+        dlog.flush()
+        done.add(jid)
 
     def maybe_encode(c):
-        if encode_videos and frames is None and c not in encoded and rgb_done[c] == per_cam_rgb[c]:
-            encoded.add(c)
-            enc_futs.append(enc_pool.submit(encode_camera, sc, c))
+        eid = f"enc/{sc.names[c]}"
+        if (encode_videos and frames is None and eid not in done and c not in enc_futs
+                and rgb_done[c] == per_cam_rgb[c]):
+            enc_futs[c] = enc_pool.submit(encode_camera, sc, c)
 
+    import threading
+    err = []
+    by_cam = {}
+    for j in todo:
+        by_cam.setdefault(j["cam"], []).append(j)
     with cf.ProcessPoolExecutor(max_workers=workers) as pool:
         def on_done(jid):
             futures[pool.submit(post.run, by_id[jid])] = jid
 
+        def blender_thread():
+            try:
+                for c, cj in sorted(by_cam.items()):
+                    run_blender(sc, cj, f"{tag}_{sc.names[c]}", on_done)
+            except Exception as e:  # noqa: BLE001
+                err.append(e)
+        th = threading.Thread(target=blender_thread)
+        th.start()
         for c in per_cam_rgb:
             maybe_encode(c)
-        if todo:
-            # run Blender in a thread so post-processing futures are collected while it renders
-            import threading
-            err = []
-
-            def blender_thread():
-                try:
-                    run_blender(sc, todo, tag, on_done)
-                except Exception as e:  # noqa: BLE001
-                    err.append(e)
-            th = threading.Thread(target=blender_thread)
-            th.start()
-            while th.is_alive() or futures:
-                fin = [f for f in list(futures) if f.done()]
-                for f in fin:
-                    jid = futures.pop(f)
+        while th.is_alive() or futures or any(not f.done() for f in enc_futs.values()):
+            fin = [f for f in list(futures) if f.done()]
+            for f in fin:
+                jid = futures.pop(f)
+                f.result()
+                mark(jid)
+                j = by_id[jid]
+                if j["kind"] == "rgb":
+                    rgb_done[j["cam"]].add(jid)
+                    maybe_encode(j["cam"])
+            for c, f in list(enc_futs.items()):
+                if f.done() and f"enc/{sc.names[c]}" not in done:
                     f.result()
-                    dlog.write(jid + "\n")
-                    dlog.flush()
-                    j = by_id[jid]
-                    if j["kind"] == "rgb":
-                        rgb_done[j["cam"]].add(jid)
-                        maybe_encode(j["cam"])
-                if not fin:
-                    time.sleep(0.05)
-            th.join()
+                    mark(f"enc/{sc.names[c]}")
             if err:
-                raise err[0]
-    for f in enc_futs:
-        f.result()
+                break
+            if not fin:
+                time.sleep(0.05)
+        th.join()
+        if err:
+            raise err[0]
     enc_pool.shutdown()
     dlog.close()
     dt = time.time() - t_start
-    print(f"[{sc.name}] rendered {len(todo)} jobs in {dt:.1f}s")
+    print(f"[{sc.name}] rendered {len(todo)} jobs in {dt:.1f}s", flush=True)
     return dt
 
 
