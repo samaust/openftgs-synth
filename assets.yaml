@@ -1,0 +1,826 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Asset manifest: every third-party file used by the scenes. All CC0-1.0.
+# sha256 is filled in by tools/fetch_assets.py --record on first download.
+- id: comfy_cafe
+  source: polyhaven
+  kind: hdri
+  name: Comfy Café
+  page: https://polyhaven.com/a/comfy_cafe
+  author: Sergej Majboroda
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/comfy_cafe_2k.hdr
+    md5: e8d670a951dcbb06c0bb1d3a7b351f15
+    size: 6260522
+    path: comfy_cafe_2k.hdr
+    sha256: 00597d2a2174b7803c10bd2d690922e170bb614bce6c98c9c9b688698f1d234d
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: urban_courtyard
+  source: polyhaven
+  kind: hdri
+  name: Urban Courtyard
+  page: https://polyhaven.com/a/urban_courtyard
+  author: Greg Zaal, Rico Cilliers
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/urban_courtyard_2k.hdr
+    md5: 3e74fc2dd2c9aa1676f7629b815763f9
+    size: 6448910
+    path: urban_courtyard_2k.hdr
+    sha256: f907cb550c920d3f6c2305761919066f77c82fd79dd690881660c82fcc9aa1c3
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: brown_photostudio_02
+  source: polyhaven
+  kind: hdri
+  name: Brown Photostudio 02
+  page: https://polyhaven.com/a/brown_photostudio_02
+  author: Sergej Majboroda
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/brown_photostudio_02_2k.hdr
+    md5: 15f9d0a5bde4a67e0b7d266f07bc166c
+    size: 6492863
+    path: brown_photostudio_02_2k.hdr
+    sha256: 153ca0cb899575c00f5b23065958d250a0f73e8789c8cf5957ccea313baf2bb6
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: brown_floor_tiles
+  source: polyhaven
+  kind: texture
+  name: Brown Floor Tilles
+  page: https://polyhaven.com/a/brown_floor_tiles
+  author: Rob Tuytel
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_floor_tiles/brown_floor_tiles_diff_2k.jpg
+    md5: a9f0398f4b8d1b79eb57b9e957012930
+    size: 3584512
+    path: brown_floor_tiles_diff_2k.jpg
+    sha256: 5cfe37ef74f2bec450d52db646714e36325b4723589c9628bf99bf887c65ed49
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_floor_tiles/brown_floor_tiles_nor_gl_2k.jpg
+    md5: c06470665b2f7617e9bdf42eaff70b7f
+    size: 1410617
+    path: brown_floor_tiles_nor_gl_2k.jpg
+    sha256: b953c132296f10b02e8e9bab6bc5e0083a32d57b5cd86a020080588a633c79f9
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_floor_tiles/brown_floor_tiles_rough_2k.jpg
+    md5: c61456a35b49515e9cafb7e77b4eb4e6
+    size: 2841084
+    path: brown_floor_tiles_rough_2k.jpg
+    sha256: 3bb842eab5e3312c8102963655a969f2587954bb83344527b961889351f4de4b
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: painted_plaster_wall
+  source: polyhaven
+  kind: texture
+  name: Painted Plaster Wall
+  page: https://polyhaven.com/a/painted_plaster_wall
+  author: Amal Kumar
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/painted_plaster_wall/painted_plaster_wall_diff_2k.jpg
+    md5: 32f4f4e5ded7d20e55e337004d0d9691
+    size: 3132937
+    path: painted_plaster_wall_diff_2k.jpg
+    sha256: 6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/painted_plaster_wall/painted_plaster_wall_nor_gl_2k.jpg
+    md5: 18faf9f7949aefdb3ae7cef7195cba04
+    size: 4048392
+    path: painted_plaster_wall_nor_gl_2k.jpg
+    sha256: 2d601a46ed5ce2af866741c53cafa3cba472620c272e633b6484d4de16a80eb1
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/painted_plaster_wall/painted_plaster_wall_rough_2k.jpg
+    md5: 7cdd5fbbe56f7becb757fc5b52d11d28
+    size: 1595466
+    path: painted_plaster_wall_rough_2k.jpg
+    sha256: 35aad595469533cc3b7cc209cc6c7e065d660211f02c867f4492d3b371b1fee1
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: floor_tiles_06
+  source: polyhaven
+  kind: texture
+  name: Floor Tiles 06
+  page: https://polyhaven.com/a/floor_tiles_06
+  author: Rob Tuytel
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/floor_tiles_06/floor_tiles_06_diff_2k.jpg
+    md5: 72e61a5a191b4d5f1889a51598e481c2
+    size: 1394898
+    path: floor_tiles_06_diff_2k.jpg
+    sha256: fe326c219d096e8f5d31c9be6da5a617f34c58b3042d0733f7d4450a38906b37
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/floor_tiles_06/floor_tiles_06_nor_gl_2k.jpg
+    md5: 07aded52ddd8758b4703cbd831c5b17d
+    size: 1010594
+    path: floor_tiles_06_nor_gl_2k.jpg
+    sha256: 930ee26e4018f0d44d8f011b364b141c7ccf02bd3e47b85e591cbbaeb9f47046
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/floor_tiles_06/floor_tiles_06_rough_2k.jpg
+    md5: f033300454b582486675a87006cf2cf2
+    size: 483344
+    path: floor_tiles_06_rough_2k.jpg
+    sha256: 9b8058cb0f471db05bca1ca47fa9190ea6c31a1684c93c17123e4ecfa2d70e28
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: kitchen_wood
+  source: polyhaven
+  kind: texture
+  name: Kitchen Wood
+  page: https://polyhaven.com/a/kitchen_wood
+  author: Rob Tuytel
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/kitchen_wood/kitchen_wood_diff_2k.jpg
+    md5: e23ef649eda9bf19c44126b3ffdaaa8a
+    size: 3557700
+    path: kitchen_wood_diff_2k.jpg
+    sha256: da11d51f48e4a85959b6c45ac6a6f50e78bc0aac73f094ddbe1040d71633c4e6
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/kitchen_wood/kitchen_wood_nor_gl_2k.jpg
+    md5: 5dad69d0f1d07153e633000fc678e9c5
+    size: 2817756
+    path: kitchen_wood_nor_gl_2k.jpg
+    sha256: 4b861a9f40d9f3570cdf023ea873c8da74d710982406884e6f718769f1fac5f6
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/kitchen_wood/kitchen_wood_rough_2k.jpg
+    md5: c15c5f17129ea633ae63422e7d61c212
+    size: 3520436
+    path: kitchen_wood_rough_2k.jpg
+    sha256: 1e50a610725aa193a9b2f25daf3892d13121b02d8f290085f9d613d3a8c4a86d
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: fabric_pattern_07
+  source: polyhaven
+  kind: texture
+  name: Fabric Pattern 07
+  page: https://polyhaven.com/a/fabric_pattern_07
+  author: Rob Tuytel
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/fabric_pattern_07/fabric_pattern_07_col_1_1k.jpg
+    md5: c82406b5ac4086b14db6b3ad9c84946f
+    size: 788593
+    path: fabric_pattern_07_col_1_1k.jpg
+    sha256: aeb7a1487b77aec55e39de662def4d371f5c7c617f62d1f291d7f9932ffebdc9
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/fabric_pattern_07/fabric_pattern_07_nor_gl_1k.jpg
+    md5: cdbbc2ebe5d75f6edd66ba090f3be49f
+    size: 828071
+    path: fabric_pattern_07_nor_gl_1k.jpg
+    sha256: f6955bbdead9f023f2357f6f8808ed49627d10882cd2a3cb6b5a5ace155abc45
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/fabric_pattern_07/fabric_pattern_07_rough_1k.jpg
+    md5: 28f47eb9de3e4ebe1dc519f601335fc4
+    size: 488744
+    path: fabric_pattern_07_rough_1k.jpg
+    sha256: 3d90ac40b5c32a15649cc8525b7eeed133ea46b63a0e3eae5e34911d5c967e3a
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: cobblestone_floor_04
+  source: polyhaven
+  kind: texture
+  name: Cobblestone Floor 04
+  page: https://polyhaven.com/a/cobblestone_floor_04
+  author: Rob Tuytel
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/cobblestone_floor_04/cobblestone_floor_04_diff_2k.jpg
+    md5: 6fd3d5dbaca10c763d813f1b9d532f1b
+    size: 2261344
+    path: cobblestone_floor_04_diff_2k.jpg
+    sha256: 82be42e9e666d8da3da306cd47505e0940260389394ff68f74073261577252ac
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/cobblestone_floor_04/cobblestone_floor_04_nor_gl_2k.jpg
+    md5: 051fb80cac9f261e1d21f10b2a664245
+    size: 2937425
+    path: cobblestone_floor_04_nor_gl_2k.jpg
+    sha256: 6b0846bd7f9bb6f9092da7144ac12960118d1c7721ccceaca7a17c8f1e68f0ff
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/cobblestone_floor_04/cobblestone_floor_04_rough_2k.jpg
+    md5: 1be55c1917663ff6bca05276a7915a56
+    size: 1697046
+    path: cobblestone_floor_04_rough_2k.jpg
+    sha256: 0a115827914a1cd8773ee8aed84f69417171d501c376882f04b74ec3c898b052
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: brick_wall_001
+  source: polyhaven
+  kind: texture
+  name: Brick Wall 001
+  page: https://polyhaven.com/a/brick_wall_001
+  author: Dimitrios Savva, Rob Tuytel
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brick_wall_001/brick_wall_001_diffuse_2k.jpg
+    md5: 0f478f67d252a1fa7b351460a19965bd
+    size: 2043756
+    path: brick_wall_001_diffuse_2k.jpg
+    sha256: aefa7f3743282de2c7df4e4282c868de204239ac3c94e818b1ef74f2a2d74f1a
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brick_wall_001/brick_wall_001_nor_gl_2k.jpg
+    md5: b3c77c1e0dbbe0788d11b993296bb822
+    size: 1160617
+    path: brick_wall_001_nor_gl_2k.jpg
+    sha256: 62cc36d391b2f73c3855fd745a5815686db59d73bf3ef9db2ad96ca27eb97e32
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brick_wall_001/brick_wall_001_rough_2k.jpg
+    md5: 3218b14608165fb4903dcca0e127c005
+    size: 788257
+    path: brick_wall_001_rough_2k.jpg
+    sha256: 96a124344ee8ace616cf4397324b7b2e47c4f07b6961d12bc19a7b90d2bf61a0
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: plaster_brick_01
+  source: polyhaven
+  kind: texture
+  name: Plaster Brick 01
+  page: https://polyhaven.com/a/plaster_brick_01
+  author: Rob Tuytel
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_diff_2k.jpg
+    md5: 58f7545f3c1e998dcfc39a779c47f0f8
+    size: 2971787
+    path: plaster_brick_01_diff_2k.jpg
+    sha256: 35751921c0aeb0d5dd92907b0f276693492985b8cec94273e1f44f64b3dc96fd
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_nor_gl_2k.jpg
+    md5: 238b2236b286cfff25d0518bce1c5467
+    size: 2208001
+    path: plaster_brick_01_nor_gl_2k.jpg
+    sha256: b20ae7ef3d71982048923be1993970f106437078f942b0babcc867631132545b
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/plaster_brick_01/plaster_brick_01_rough_2k.jpg
+    md5: 7d424d826c9899f3d6dbd0168d3cc76c
+    size: 2389997
+    path: plaster_brick_01_rough_2k.jpg
+    sha256: f6daf9e3a819b40bd436d50014f694cf10e9812466ab751c6ba33425581d517b
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: denim_fabric
+  source: polyhaven
+  kind: texture
+  name: Denim Fabric
+  page: https://polyhaven.com/a/denim_fabric
+  author: Rob Tuytel
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/denim_fabric/denim_fabric_diff_1k.jpg
+    md5: 3835b5e277dd99784bfe68d985da14ae
+    size: 886486
+    path: denim_fabric_diff_1k.jpg
+    sha256: d6d0254e2c90768482b0be8cfdc16e18117acc92bad00d406fd4b9be24facdec
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/denim_fabric/denim_fabric_nor_gl_1k.jpg
+    md5: 9008fe723671f9cb3e6d0889eab9adb0
+    size: 474669
+    path: denim_fabric_nor_gl_1k.jpg
+    sha256: de0e9c5ed5cce7dacd50a67be16c6d8b8dc036907638e3702729c2f60296094e
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/denim_fabric/denim_fabric_rough_1k.jpg
+    md5: 7eebb4a6185f2e6805976bc356dd1b41
+    size: 467773
+    path: denim_fabric_rough_1k.jpg
+    sha256: 51b971b7e83d733d88940be2a417c6ce8ea3a82c27a7cb3525f4bacc97aad2b7
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: concrete_floor_01
+  source: polyhaven
+  kind: texture
+  name: Concrete Floor 01
+  page: https://polyhaven.com/a/concrete_floor_01
+  author: Rob Tuytel
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_diff_2k.jpg
+    md5: bde1be20188bbec1d3970f37ee210ca1
+    size: 2967720
+    path: concrete_floor_01_diff_2k.jpg
+    sha256: ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_nor_gl_2k.jpg
+    md5: ee04738b0919c3bd75ea77fc55e1e7d8
+    size: 3261423
+    path: concrete_floor_01_nor_gl_2k.jpg
+    sha256: 796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_rough_2k.jpg
+    md5: 3e7d67a2c5444140a30570e93eb23bd3
+    size: 1488360
+    path: concrete_floor_01_rough_2k.jpg
+    sha256: e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: dark_wooden_planks
+  source: polyhaven
+  kind: texture
+  name: Dark Wooden Planks
+  page: https://polyhaven.com/a/dark_wooden_planks
+  author: Amal Kumar
+  resolution: 2k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dark_wooden_planks/dark_wooden_planks_diff_2k.jpg
+    md5: e6ae2fe585184c16343c56b833eddbf8
+    size: 2884395
+    path: dark_wooden_planks_diff_2k.jpg
+    sha256: 527fa684c78d0a3b4fbfa87b9e2b48691215fcac8af0bf79fc6e01cefb4c4647
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dark_wooden_planks/dark_wooden_planks_nor_gl_2k.jpg
+    md5: c7b2e77045b0983cd7c9c408c0361a59
+    size: 2930852
+    path: dark_wooden_planks_nor_gl_2k.jpg
+    sha256: 047941a8e483d941abf6562270abd2c91d30d65e0a339fca0b1d3df125e92154
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/dark_wooden_planks/dark_wooden_planks_rough_2k.jpg
+    md5: 9999def4fb6e250016bb21e2d4625a55
+    size: 2737535
+    path: dark_wooden_planks_rough_2k.jpg
+    sha256: fb11f1eee7a982da0272d38695097a1f4c2047bd21eae71361fdcb6d7723c0ed
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: quatrefoil_jacquard_fabric
+  source: polyhaven
+  kind: texture
+  name: Quatrefoil Jacquard Fabric
+  page: https://polyhaven.com/a/quatrefoil_jacquard_fabric
+  author: Rico Cilliers, colormass
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/quatrefoil_jacquard_fabric/quatrefoil_jacquard_fabric_diff_1k.jpg
+    md5: 0321f1c1d7126400feb8cb2955561f62
+    size: 581799
+    path: quatrefoil_jacquard_fabric_diff_1k.jpg
+    sha256: 674e9d4c2c116099b79ab364eb04e2101031745f2eb27e4a9e198a81e31c8cd7
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/quatrefoil_jacquard_fabric/quatrefoil_jacquard_fabric_nor_gl_1k.jpg
+    md5: e723cab89822a7af4c60501e3ea675e4
+    size: 919702
+    path: quatrefoil_jacquard_fabric_nor_gl_1k.jpg
+    sha256: 9320e4ce8f986d26d30711dbb654e8d88371dc1ea28337f7bb373b243ea30286
+  - url: https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/quatrefoil_jacquard_fabric/quatrefoil_jacquard_fabric_rough_1k.jpg
+    md5: e189eb27984a0b1bc81d558b5354744d
+    size: 909070
+    path: quatrefoil_jacquard_fabric_rough_1k.jpg
+    sha256: 87f300df50b8819d067fe3dbd9c995b123b333b29f923fb1c5ad291e0d7fd395
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: wooden_bowl_01
+  source: polyhaven
+  kind: model
+  name: Wooden Bowl 01
+  page: https://polyhaven.com/a/wooden_bowl_01
+  author: Oliver Harries
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/wooden_bowl_01/wooden_bowl_01_1k.gltf
+    md5: d4fa6acadbae81c8f66f346381b11582
+    size: 2811
+    path: wooden_bowl_01_1k.gltf
+    sha256: 7fe0d6aa4b58e1b9bfc704a8142f4f23f651640c5701b26037fbee3c01613c3b
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_bowl_01/wooden_bowl_01_arm_1k.jpg
+    md5: 3bdbd9a9f73108f6a6b6c9a248aa1eb9
+    size: 451613
+    path: textures/wooden_bowl_01_arm_1k.jpg
+    sha256: 206e84e320ebc4eb538a1509d3a59cfce5feb96596f7cae3700382d1a0790c81
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_bowl_01/wooden_bowl_01_diff_1k.jpg
+    md5: 64626044995a55e0525dbf8ad1388914
+    size: 450565
+    path: textures/wooden_bowl_01_diff_1k.jpg
+    sha256: 7c33269d85411cf905d5bb53d95bd148c174b26a3cfb86ee58a26735123098b1
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_bowl_01/wooden_bowl_01_nor_gl_1k.jpg
+    md5: ba2691b4cc8cfdbbd8ff5c5ae9bfadbc
+    size: 597196
+    path: textures/wooden_bowl_01_nor_gl_1k.jpg
+    sha256: f25955450f21c80e8db34b4621ceec3778199f73c8d5c3350367640cac8cc214
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/wooden_bowl_01/wooden_bowl_01.bin
+    md5: ab8f522a5b859d901de1eed742f275bd
+    size: 321052
+    path: wooden_bowl_01.bin
+    sha256: 2659e19ea140aed29edca6761b6ee117e0a488ac14cd32c30fd0f1116f645761
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: vintage_electric_kettle
+  source: polyhaven
+  kind: model
+  name: Vintage Electric Kettle
+  page: https://polyhaven.com/a/vintage_electric_kettle
+  author: SV Garip
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/vintage_electric_kettle/vintage_electric_kettle_1k.gltf
+    md5: 2b916b831d913ba1785a8b08ab2f0f61
+    size: 4801
+    path: vintage_electric_kettle_1k.gltf
+    sha256: c03d2ef0e9f46eb06a1ccef6ff78d7baf83e76808e31d7016505e3ee0a416859
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_electric_kettle/vintage_electric_kettle_arm_1k.jpg
+    md5: 3b2f4b53442fa5d3fac05da5c529aeb8
+    size: 756927
+    path: textures/vintage_electric_kettle_arm_1k.jpg
+    sha256: ff683e24348d6319edf7bd5a14659a846d3008ae614bf966d4db23fc156b5e0c
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_electric_kettle/vintage_electric_kettle_diff_1k.jpg
+    md5: 758b520b36cd419442d06fa5ea2b4924
+    size: 584337
+    path: textures/vintage_electric_kettle_diff_1k.jpg
+    sha256: eee3052a610f24055f7b25749cfaf64016a5621afcff931fe513ab62c0a829f3
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_electric_kettle/vintage_electric_kettle_nor_gl_1k.jpg
+    md5: a8d86ddd33e47a4781105f66582e4b7c
+    size: 624432
+    path: textures/vintage_electric_kettle_nor_gl_1k.jpg
+    sha256: 7723e22b77b73c6cc20d2593849d56cc64ee5c8e54bacf3bf8b2f4dd4f2ffaf0
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/vintage_electric_kettle/vintage_electric_kettle.bin
+    md5: 3e817b9bd20bad65c016e5464ee03bc3
+    size: 416612
+    path: vintage_electric_kettle.bin
+    sha256: 6be39ebc1893feaef3aa05bec6d2bf069af65fec0c1500422aaedf14357dab59
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: ceramic_vase_01
+  source: polyhaven
+  kind: model
+  name: Ceramic Vase 01
+  page: https://polyhaven.com/a/ceramic_vase_01
+  author: James Ray Cock
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/ceramic_vase_01/ceramic_vase_01_1k.gltf
+    md5: 8f11b5472424578c2c505dee271a0868
+    size: 2706
+    path: ceramic_vase_01_1k.gltf
+    sha256: 4e2c69eb5bbccf86e9fbf92af438464669d804c1f0eae041ee28651a5b57d91e
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/ceramic_vase_01/ceramic_vase_01.bin
+    md5: 73f8a0f911f2d377e3b925b0ae9c7d4c
+    size: 272656
+    path: ceramic_vase_01.bin
+    sha256: 56ffadcafff3f56538d04b0b43c06c9704baeec2ac3ec286ef01c313c82906f0
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/ceramic_vase_01/ceramic_vase_01_arm_1k.jpg
+    md5: 14e56f6d0f810525ddcf9305fa09f495
+    size: 74240
+    path: textures/ceramic_vase_01_arm_1k.jpg
+    sha256: 121469880a7900513717685e9035dfc1b04613f85c778ab4e9dba98c1675d660
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/ceramic_vase_01/ceramic_vase_01_diff_1k.jpg
+    md5: 52337c4fedc46490476d46a8950e1d6b
+    size: 32351
+    path: textures/ceramic_vase_01_diff_1k.jpg
+    sha256: 5f7d22178b74a59fe92aa0ccc958b897e2fb80df514eb28b97000097c0e71beb
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/ceramic_vase_01/ceramic_vase_01_nor_gl_1k.jpg
+    md5: 46081f52a4e9bb58d706477318627a22
+    size: 36504
+    path: textures/ceramic_vase_01_nor_gl_1k.jpg
+    sha256: c35b59d15e0f08db44b0bc8a5870bc65ae781819e5abf0447996d0faf05b7722
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: potted_plant_01
+  source: polyhaven
+  kind: model
+  name: Potted Plant 01
+  page: https://polyhaven.com/a/potted_plant_01
+  author: Rico Cilliers
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/potted_plant_01/potted_plant_01_1k.gltf
+    md5: 199e9e3d68f5447142db4066d60ae3f0
+    size: 7969
+    path: potted_plant_01_1k.gltf
+    sha256: 23b30294407684b02f14800d6685bd8938da5d2111e17753ac8dd3c37d8c88a0
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/potted_plant_01/potted_plant_01.bin
+    md5: 18377bd8d99b20a8d5fc5cf03cbf94b2
+    size: 5345188
+    path: potted_plant_01.bin
+    sha256: a8dd1f7ce75f50dc25bbedc20809da02ee4193815c155b883a329925fa5548f7
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/potted_plant_01/potted_plant_01_leaves_diff_1k.jpg
+    md5: 8cbaaa24c18c61be4201c473773dbffc
+    size: 124730
+    path: textures/potted_plant_01_leaves_diff_1k.jpg
+    sha256: b73891a0a606e139d0fcdd9e6fe503cd1210be3fc9c55fbd033941288231ccaa
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/potted_plant_01/potted_plant_01_leaves_nor_gl_1k.jpg
+    md5: 0a7ea996bb2a4e9e19a5299a5b654406
+    size: 177105
+    path: textures/potted_plant_01_leaves_nor_gl_1k.jpg
+    sha256: 2faa756e0ee2b8341c752b283b93599157bf56f4083a9f61b825cdfa0c7138ff
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/potted_plant_01/potted_plant_01_leaves_rough_1k.jpg
+    md5: 6251bfd59ced0360c16d9c286adbb131
+    size: 91706
+    path: textures/potted_plant_01_leaves_rough_1k.jpg
+    sha256: 765e3bd1bfdad39dd0d1cd755eafd1f9f1d46cbbb6013988cbfd1197de27a1f9
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/potted_plant_01/potted_plant_01_pot_diff_1k.jpg
+    md5: 67114dcd68232a6da88c627e144e65c4
+    size: 204900
+    path: textures/potted_plant_01_pot_diff_1k.jpg
+    sha256: 51c9d80e8abe585bd3dbcebe7cba1d3ed1a22b137c7cb66baf0e462c08dca312
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/potted_plant_01/potted_plant_01_pot_nor_gl_1k.jpg
+    md5: 7388c8cba421175fd70969df077988a1
+    size: 200349
+    path: textures/potted_plant_01_pot_nor_gl_1k.jpg
+    sha256: ec02e51751e0822d229d48bea1373b06e2675c3725ff04fd1f87ac516719e620
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/potted_plant_01/potted_plant_01_pot_rough_1k.jpg
+    md5: 8f2e400f94843a9239229bfe99d16688
+    size: 173192
+    path: textures/potted_plant_01_pot_rough_1k.jpg
+    sha256: 1256199fe3a88a0534bcd4c8bf141cfa9a28b68fce3f286193d0713796fd8561
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: dining_chair_02
+  source: polyhaven
+  kind: model
+  name: Dining Chair 02
+  page: https://polyhaven.com/a/dining_chair_02
+  author: James Ray Cock
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/dining_chair_02/dining_chair_02_1k.gltf
+    md5: 5aff75016e0943e84161de89dcc3ceb8
+    size: 2723
+    path: dining_chair_02_1k.gltf
+    sha256: 88352a44a17319846f61fe03ce75c79fb1849aa508b6a262366c149c1bbd06b8
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/dining_chair_02/dining_chair_02.bin
+    md5: b7f8a91c0a5249d02de7885f3b242c4e
+    size: 544592
+    path: dining_chair_02.bin
+    sha256: c7f1ef858f73815176d2ab304472a69ccf6097e971e5258eb924a75f841d4af5
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/dining_chair_02/dining_chair_02_arm_1k.jpg
+    md5: 2b16c9ddb3ea83d200b02de54a4fdcb8
+    size: 162630
+    path: textures/dining_chair_02_arm_1k.jpg
+    sha256: 0a81c0c886baa1e65d94fb6fb90ab4751bee319888ecf1c428ae62042d8a5b15
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/dining_chair_02/dining_chair_02_diff_1k.jpg
+    md5: 6b7b8e4ac0a3aad9ecdf314a97b0ef75
+    size: 91518
+    path: textures/dining_chair_02_diff_1k.jpg
+    sha256: 343990f764790da1149485a422dee2bc6797945a6af06a37d02d7a7de041acf5
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/dining_chair_02/dining_chair_02_nor_gl_1k.jpg
+    md5: 9c0e1003f9c8859a2e5c2c7f92a8f238
+    size: 119612
+    path: textures/dining_chair_02_nor_gl_1k.jpg
+    sha256: 348703512ca1215f8389e9108419c2d1a46537663db25f423c3ef900d20cfe61
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: painted_wooden_bench
+  source: polyhaven
+  kind: model
+  name: Painted Wooden Bench
+  page: https://polyhaven.com/a/painted_wooden_bench
+  author: Kirill Sannikov
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/painted_wooden_bench/painted_wooden_bench_1k.gltf
+    md5: 784a49250144aa5299a93c1f3b6968d7
+    size: 2835
+    path: painted_wooden_bench_1k.gltf
+    sha256: 2289ab82f3fe3045bf18f7b9541743d2c65b9f071cb34bbe424d2bc998f3e507
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/painted_wooden_bench/painted_wooden_bench.bin
+    md5: ed331b50f955852f007313c1a75c2e2d
+    size: 25444
+    path: painted_wooden_bench.bin
+    sha256: 5799bcb20924105cccd6424de8cdb8e67eb57fddc19c395befeac634a7b2e013
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/painted_wooden_bench/painted_wooden_bench_arm_1k.jpg
+    md5: 754ecc7f47b1e5d032e45e22334954f1
+    size: 586040
+    path: textures/painted_wooden_bench_arm_1k.jpg
+    sha256: 878785565eeff706b8f1e4db7e3d794a544e9cf0e56cee424d9a271ab4ead47e
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/painted_wooden_bench/painted_wooden_bench_diff_1k.jpg
+    md5: 60c7d0f34f52b1003345d318e35f468d
+    size: 545216
+    path: textures/painted_wooden_bench_diff_1k.jpg
+    sha256: 9bc533313091ee71eaca5fa6334b71d27935d9d75311f64df6a53c28a67c435c
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/painted_wooden_bench/painted_wooden_bench_nor_gl_1k.jpg
+    md5: 08b74bebcff262c14beae35a4f7b3405
+    size: 830104
+    path: textures/painted_wooden_bench_nor_gl_1k.jpg
+    sha256: a0f53740d77fc61aac01de0b7e1ae6109445d1756839f739ae31fdf10c9911f2
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: planter_box_01
+  source: polyhaven
+  kind: model
+  name: Planter Box 01
+  page: https://polyhaven.com/a/planter_box_01
+  author: James Ray Cock
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/planter_box_01/planter_box_01_1k.gltf
+    md5: 731d186af61b042dc4b4a2cd4744c35a
+    size: 2787
+    path: planter_box_01_1k.gltf
+    sha256: 15c7ff7396d872e5cad6743c796ff0f42e1f3f831fd334a26aa1fdbd11834a1f
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/planter_box_01/planter_box_01.bin
+    md5: 644c9dedd7c8b090a10fa2be597d36bb
+    size: 250580
+    path: planter_box_01.bin
+    sha256: cc97bc9ee05a90c78e27ca575a83eba86955e863dea8a12826f6ff02c2c11db3
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/planter_box_01/planter_box_01_arm_1k.jpg
+    md5: 201a4279feacf18a18e15af184fb4e52
+    size: 745610
+    path: textures/planter_box_01_arm_1k.jpg
+    sha256: b80b08f88166360af32a076082daaed820f0d364a5bef0acea651485017ccbd6
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/planter_box_01/planter_box_01_diff_1k.jpg
+    md5: f30b51ecd4af4d14cfa94794d6b47787
+    size: 633117
+    path: textures/planter_box_01_diff_1k.jpg
+    sha256: 5ad77068bf07ca371e18322c04641754a7758f4479e2835b93f671b4a5143bee
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/planter_box_01/planter_box_01_nor_gl_1k.jpg
+    md5: a1b6f6fd3d45f05c9554e6a59fe0cab2
+    size: 707323
+    path: textures/planter_box_01_nor_gl_1k.jpg
+    sha256: 7d2ad01fdfc8ea9e39af0ddc1db710380afad859dc3848302ff72d21a6e21a27
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: street_lamp_01
+  source: polyhaven
+  kind: model
+  name: Street Lamp 01
+  page: https://polyhaven.com/a/street_lamp_01
+  author: Josh Dean
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/street_lamp_01/street_lamp_01_1k.gltf
+    md5: d29d1fc30bbdad99a58371754f144e65
+    size: 6419
+    path: street_lamp_01_1k.gltf
+    sha256: 5d0358ede168b5e04547780b99d8e6d651cbe644e468e67cb505019047cbd5c8
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/street_lamp_01/street_lamp_01.bin
+    md5: 324bc6295e3962322514ddcfc7037b23
+    size: 748908
+    path: street_lamp_01.bin
+    sha256: c283db9b6d95835d9e8fc1692829acadcb21a0623b2daaa7231cec1440488401
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/street_lamp_01/street_lamp_01_arm_1k.jpg
+    md5: 63d980174db10cf22a1b175743c465c9
+    size: 664324
+    path: textures/street_lamp_01_arm_1k.jpg
+    sha256: 4b5487a6c7ee300c3cf5449629e01c35409e5c7ac1695edb9fe69d4821853c7c
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/street_lamp_01/street_lamp_01_diff_1k.jpg
+    md5: 82efb7531a25cda3ef8af2aff8ecccf7
+    size: 307889
+    path: textures/street_lamp_01_diff_1k.jpg
+    sha256: 3e9d3471b33eb1f8075ed741c2b1932103598626d057ca12ef38005ea5fcb165
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/street_lamp_01/street_lamp_01_nor_gl_1k.jpg
+    md5: c27d8102c7e851a8f0f654bb959b9d67
+    size: 438623
+    path: textures/street_lamp_01_nor_gl_1k.jpg
+    sha256: 172af0fd7ed4999e9f520b9f56e1f357a6dba87adbd7b8aa87e0a0b95840c63d
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: wooden_crate_01
+  source: polyhaven
+  kind: model
+  name: Wooden Crate 01
+  page: https://polyhaven.com/a/wooden_crate_01
+  author: James Ray Cock
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/wooden_crate_01/wooden_crate_01_1k.gltf
+    md5: 33df4d2ae00186d4b64e878466c9e22e
+    size: 5612
+    path: wooden_crate_01_1k.gltf
+    sha256: fd9c6073acfc671e12b64666053f2805ae33aff5d3dbbcfe5c97c08c06644927
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_crate_01/wooden_crate_01_arm_1k.jpg
+    md5: 67c4aeb1154af98f95516b21ef62291c
+    size: 776699
+    path: textures/wooden_crate_01_arm_1k.jpg
+    sha256: cd0b031c3924905e16ffd78ead062c2cc274148c4104d09635310097738b4679
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_crate_01/wooden_crate_01_diff_1k.jpg
+    md5: 266e0462d06e77c5745f66e89820544f
+    size: 711292
+    path: textures/wooden_crate_01_diff_1k.jpg
+    sha256: 16653f4abaf4c1d9bca94bde3bd8c54d0ea9a5298d1648abcf57de1f7ecc34cc
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/wooden_crate_01/wooden_crate_01_nor_gl_1k.jpg
+    md5: e31626a1fcf6f7062c2ffd9fc982b942
+    size: 594076
+    path: textures/wooden_crate_01_nor_gl_1k.jpg
+    sha256: f4ea44c7dc1686123d337039cb713d74e8a2dbc6d1bd2beeac276d06f5df3fab
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/wooden_crate_01/wooden_crate_01.bin
+    md5: 8318f76b0c24b5538ce23051dbcb79a0
+    size: 189408
+    path: wooden_crate_01.bin
+    sha256: 85f381f8035f7a6f2f3b848640894c6d3333b261946dd8a338c0fe19e0bea21e
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: barrel_03
+  source: polyhaven
+  kind: model
+  name: Barrel 03
+  page: https://polyhaven.com/a/barrel_03
+  author: Serhii Khromov
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/barrel_03/barrel_03_1k.gltf
+    md5: 204eec2159a38a1dc4b826ef255f9468
+    size: 2638
+    path: barrel_03_1k.gltf
+    sha256: 80e2faf48b7423bb522b573e459d99c5656a16763285ec8268e957fc7d41f9b8
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/barrel_03/barrel_03.bin
+    md5: 6993587e3ef8e0603334e615ab292288
+    size: 44872
+    path: barrel_03.bin
+    sha256: 10f3202e9ac9acf8dd896f1562c64db58311ffef89efb402d8433e03ad486427
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/barrel_03/barrel_03_arm_1k.jpg
+    md5: 3520338e30b4d257745db34848098688
+    size: 249922
+    path: textures/barrel_03_arm_1k.jpg
+    sha256: 2cec2338b36d7322bef55e6a1d0884b223c5ed383cf986a58bfa461478c64c7e
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/barrel_03/barrel_03_diff_1k.jpg
+    md5: 6e77dc1af60c48787fd80dbbcf125040
+    size: 149997
+    path: textures/barrel_03_diff_1k.jpg
+    sha256: 62feb27dfa9a0daf3f323fdc1ddc2d8e4a5996cf2c72fe50197b55c2b9cba7f3
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/barrel_03/barrel_03_nor_gl_1k.jpg
+    md5: fd181365eb7397d55773987d145f0420
+    size: 126707
+    path: textures/barrel_03_nor_gl_1k.jpg
+    sha256: ade97c52985047858a4f38226a9b8a888e3a766ba0434700b4618fb25424c4b6
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: metal_stool_01
+  source: polyhaven
+  kind: model
+  name: Metal Stool 01
+  page: https://polyhaven.com/a/metal_stool_01
+  author: Ulan Cabanilla
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/metal_stool_01/metal_stool_01_1k.gltf
+    md5: b52fb99e40b3dc12f515e2591f281a0e
+    size: 2790
+    path: metal_stool_01_1k.gltf
+    sha256: e69a99778cacbbf0a2447971d8917a2463b411cdd2a50ff2c53c2230b4c43881
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/metal_stool_01/metal_stool_01.bin
+    md5: 5e6178cf61b8f10a733a28d8f57bbb99
+    size: 216340
+    path: metal_stool_01.bin
+    sha256: a57dae498990e7b56cba33b64721d1d0b940ca6352248de149740cd4678d451d
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/metal_stool_01/metal_stool_01_arm_1k.jpg
+    md5: 4b990b2caddcd4bb958fd3e91b2fc786
+    size: 783046
+    path: textures/metal_stool_01_arm_1k.jpg
+    sha256: eb13e80e9fe232d022b4136e817d4590a7279d8da327d35e525e1aa4cf30e334
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/metal_stool_01/metal_stool_01_diff_1k.jpg
+    md5: aac1762c55431dc1352bd6f5cb0f0bee
+    size: 617390
+    path: textures/metal_stool_01_diff_1k.jpg
+    sha256: d11949df1f0c59b5a85145395703a2aa7617e76b80759a5ef80b09e1798acb3d
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/metal_stool_01/metal_stool_01_nor_gl_1k.jpg
+    md5: dc2e7a5284195b3ea4d2a793b03142c5
+    size: 667394
+    path: textures/metal_stool_01_nor_gl_1k.jpg
+    sha256: 55d71cb01dd9afba245d4513728ce0cde8b112d5a7e1695a68578445c7b02b82
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: desk_lamp_arm_01
+  source: polyhaven
+  kind: model
+  name: Desk Lamp Arm 01
+  page: https://polyhaven.com/a/desk_lamp_arm_01
+  author: Kuutti Siitonen, Yann Kervran
+  resolution: 1k
+  files:
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/desk_lamp_arm_01/desk_lamp_arm_01_1k.gltf
+    md5: 29b204485d30e66ee3f183ef45bf4bb3
+    size: 4453
+    path: desk_lamp_arm_01_1k.gltf
+    sha256: 2ac8389afc1519449a9cfdf7efd9fa36780a2177bb47ab58f7a7dda7d247dc8c
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/desk_lamp_arm_01/desk_lamp_arm_01.bin
+    md5: 29ffa5bb6bee35b066e46073124fee1a
+    size: 736804
+    path: desk_lamp_arm_01.bin
+    sha256: 07f34e32abecbaa63d28b9d12d6a0eb82b775a0f50c92327655909d72ff8489b
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/desk_lamp_arm_01/desk_lamp_arm_01_arm_1k.jpg
+    md5: 0b887af80f561216baa3da94d001d51a
+    size: 780379
+    path: textures/desk_lamp_arm_01_arm_1k.jpg
+    sha256: 206404c79fb7dcf8e2c4558c13544342f87d2190526231a1750c3c9adc256fbc
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/desk_lamp_arm_01/desk_lamp_arm_01_diff_1k.jpg
+    md5: a5c1bf5465da39ca6ca9039dd4e3fd66
+    size: 702522
+    path: textures/desk_lamp_arm_01_diff_1k.jpg
+    sha256: 159eb178aba3271bd555cbe07ca36431d8af9a006f0b8e9d8c67030cbdc9e4d3
+  - url: https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/desk_lamp_arm_01/desk_lamp_arm_01_nor_gl_1k.jpg
+    md5: 5aabbfe920ea6726d5299be7d6224551
+    size: 651826
+    path: textures/desk_lamp_arm_01_nor_gl_1k.jpg
+    sha256: feefedc3835ecef3634e97a24977451671f8f57747a023f48cd14c84bc73513a
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: asset page shows the "CC0 License" badge linking to https://polyhaven.com/license
+- id: quaternius_animated_human
+  source: poly.pizza
+  kind: character
+  name: Animated Human
+  page: https://poly.pizza/m/c3Ibh9I3udk
+  author: Quaternius
+  resolution: null
+  files:
+  - url: https://static.poly.pizza/170235d2-cdeb-4cb2-a82f-4828585138fe.glb
+    md5: null
+    size: 698560
+    path: animated_human.glb
+    sha256: ce4d543e82e455d5a1253798c9759f12b9eec74929ddbca464447eeaa3a42c5d
+  license: CC0-1.0
+  license_checked: '2026-10-13'
+  license_evidence: 'asset page: "FBX/GLTF format • Public Domain (CC0)" linking to creativecommons.org/publicdomain/zero/1.0/; https://quaternius.com/faq.html: "All models are under the CC0 License."'

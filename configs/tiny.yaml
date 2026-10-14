@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# tiny: smoke-test scene, 4 cameras, rendered once and written in the n3dv layout
+# (pinhole frames) and the opencv-yaml layout (5-coefficient distortion).
+name: tiny
+builder: tiny
+width: 160
+height: 120
+fps: 30
+frames: 12
+preroll_seconds: 1.0
+names: four_digit
+rig:
+  type: arc
+  n: 4
+  seed: 11
+  target: [0.0, 0.3, 0.55]
+  radius: 3.2
+  azimuth_deg: [-32, 32]
+  height: [1.35, 1.55]
+  azimuth_jitter_deg: 2.0
+  radius_jitter: 0.1
+  height_jitter: 0.05
+  target_jitter: 0.05
+  roll_jitter_deg: 0.0
+lens:
+  hfov_deg: 62
+  focal_jitter: 0.0          # n3dv needs fx = fy and the principal point at the centre
+  principal_offset_px: [0, 0]
+  principal_jitter_px: 0.0
+  distortion: [-0.12, 0.035, 0.0004, -0.0003, -0.004]
+  distortion_jitter: [0.1, 0.1, 0.5, 0.5, 0.2]
+render:
+  samples: 64
+  denoise: true
+  marker_samples: 512
+layouts:
+  - {layout: n3dv, frames: pinhole}
+  - {layout: enerf_outdoor, frames: distorted}
+validation_v2: resolution_floor   # 160x120: cv2.undistort's bilinear blur alone exceeds a few levels
+markers:            # emissive validation spheres (hidden in normal renders)
+  box: [[-2.2, 2.2], [-0.8, 1.9], [0.05, 2.3]]
+  radius: 0.03
+  count: 60
+  min_sep_px: 16
+  seed: 5
+clock:              # p(t) = p0 + velocity * t
+  p0: [-0.5, 0.1, 1.0]
+  velocity: [1.5, 0.0, 0.3]
+  radius: 0.03

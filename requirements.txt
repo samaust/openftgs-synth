@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Post-processing venv (python3 -m venv .venv && .venv/bin/pip install -r requirements.txt).
+# OpenCV is pinned below 5: the 5.0 wheels are built without OpenEXR.
+numpy==2.5.4
+opencv-python-headless==4.14.0.94
+PyYAML==6.0.3
