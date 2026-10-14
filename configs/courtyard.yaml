@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# courtyard: opencv-yaml layout (enerf_outdoor/). 18 cameras on a wide arc, 5-coefficient
+# distortion (k1 k2 p1 p2 k3), off-centre principal points. intri.yml carries ccm_<n>.
+name: courtyard
+builder: courtyard
+width: 1920
+height: 1080
+fps: 60
+frames: 300
+preroll_seconds: 1.0
+names: four_digit
+ccm: true
+rig:
+  type: arc
+  n: 18
+  seed: 202
+  target: [0.0, 1.6, 0.9]
+  radius: 5.6
+  azimuth_deg: [-72, 72]
+  height: [1.65, 1.85, 1.75]
+  azimuth_jitter_deg: 1.5
+  radius_jitter: 0.25
+  height_jitter: 0.06
+  target_jitter: 0.15
+  roll_jitter_deg: 0.8
+lens:
+  hfov_deg: 72
+  focal_jitter: 0.012
+  principal_offset_px: [4.0, -3.0]
+  principal_jitter_px: 5.0
+  distortion: [-0.17, 0.055, 0.0004, -0.0003, -0.007]
+  distortion_jitter: [0.12, 0.15, 0.5, 0.5, 0.3]
+render:
+  samples: 32
+  denoise: true
+  denoise_gpu: false
+  marker_samples: 384
+layouts:
+  - {layout: enerf_outdoor, frames: distorted}
+validation_frame_step: 25
+markers:
+  box: [[-6.8, 6.8], [-3.5, 6.2], [0.05, 4.5]]
+  radius: 0.02
+  count: 220
+  min_sep_px: 36
+  seed: 9
+clock:
+  p0: [-1.0, 0.5, 1.5]
+  velocity: [0.4, 0.05, 0.02]
+  radius: 0.02

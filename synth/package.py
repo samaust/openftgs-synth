@@ -147,6 +147,15 @@ def selfcap_members(sc):
     return rel, cal
 
 
+def package_scene_minimal(sc):
+    """cameras.json + markers.json only (used by the timing run)."""
+    os.makedirs(sc.gt, exist_ok=True)
+    json.dump(cameras_json(sc), open(os.path.join(sc.gt, "cameras.json"), "w"), indent=1)
+    info = json.load(open(sc.scene_info))
+    json.dump({"scene": sc.name, "markers": info["markers"], "clock_marker": info["clock"]},
+              open(os.path.join(sc.gt, "markers.json"), "w"), indent=1)
+
+
 def package_scene(sc):
     os.makedirs(sc.gt, exist_ok=True)
     cj = cameras_json(sc)

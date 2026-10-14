@@ -15,6 +15,7 @@ import json
 import math
 import os
 import sys
+import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -189,8 +190,9 @@ def main():
         os.makedirs(os.path.dirname(job["out"]), exist_ok=True)
         sc.render.filepath = job["out"]
         sc.render.use_file_extension = False
-        bpy.ops.render.render(write_still=True)
-        print("JOBDONE", job["id"], flush=True)
+        t0 = time.time()
+        bpy.ops.render.render(write_still=not os.environ.get("OPENFTGS_NOSAVE"))
+        print("JOBDONE", job["id"], f"{time.time() - t0:.3f}", flush=True)
     print("RENDER_OK", flush=True)
 
 

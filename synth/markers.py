@@ -19,6 +19,16 @@ def choose(cams, cfg_markers):
         pad = 2 * rad + 8
         vis = (z > 0.3) & (uv[:, 0] > pad) & (uv[:, 0] < k["W"] - pad) & (uv[:, 1] > pad) & (uv[:, 1] < k["H"] - pad)
         vis &= rad <= m.get("max_radius_px", 12.0)
+        # perspective bias: the image of a sphere is an ellipse whose centroid is not the
+        # projection of the sphere centre; keep only markers where that offset is negligible
+        bias = np.full(len(cand), np.inf)
+        idx = np.nonzero(vis)[0]
+        for j in idx:
+            x = Xc[j]
+            A = np.outer(x, x) - (x @ x - r * r) * np.eye(3)
+            cen = np.linalg.solve(A[:2, :2], -A[:2, 2])
+            bias[j] = k["K"][0, 0] * np.linalg.norm(cen - x[:2] / x[2])
+        vis &= bias <= m.get("max_bias_px", 0.02)
         proj.append((uv, vis))
     chosen = []
     per_cam = [[] for _ in cams]

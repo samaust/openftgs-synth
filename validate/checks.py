@@ -55,7 +55,7 @@ def _centroid(img, uv, rad_px):
 
 # ---------------------------------------------------------------- 1. marker projection
 
-def check_markers(sc):
+def check_markers(sc, cams=None):
     cj = _cams(sc)
     mk = json.load(open(os.path.join(sc.gt, "markers.json")))["markers"]
     X = np.array([m["position"] for m in mk])
@@ -64,6 +64,8 @@ def check_markers(sc):
     out = {"cameras": {}}
     all_p, all_d, all_c = [], [], []
     for i, c in enumerate(cj["cameras"]):
+        if cams is not None and i not in cams:
+            continue
         R, t = _pose(c)
         K = np.array(c["K_opencv"])
         D = np.array(c["distortion"])
@@ -127,6 +129,29 @@ def _bilinear_floor(ref, shift=0.3):
     a = cv2.remap(ref, gx + shift, gy + shift, cv2.INTER_LINEAR)
     b = cv2.remap(a, gx - shift, gy - shift, cv2.INTER_LINEAR)
     return np.abs(b.astype(np.int16) - ref.astype(np.int16))[4:-4, 4:-4].reshape(-1)
+
+
+def check_undistort_frames(sc, cam, frames, border=3):
+    """Check 2 on kept distorted PNG frames of one camera (timing runs)."""
+    cj = _cams(sc)
+    c = cj["cameras"][cam]
+    K, D = np.array(c["K_opencv"]), np.array(c["distortion"])
+    Kh = K.copy()
+    Kh[:2, 2] += 0.5
+    W, H = c["width"], c["height"]
+    mx, my = cv2.initUndistortRectifyMap(K, D, None, K, (W, H), cv2.CV_32FC1)
+    valid = (mx >= border) & (mx <= W - 1 - border) & (my >= border) & (my <= H - 1 - border)
+    d, h = [], []
+    for n in frames:
+        dist_img = cv2.imread(os.path.join(sc.work, "distorted", c["name"], f"{n:06d}.png"))
+        ref = cv2.imread(os.path.join(sc.gt, "pinhole", c["name"], f"{n:06d}.png"))
+        d.append(np.abs(cv2.undistort(dist_img, K, D).astype(np.int16) - ref.astype(np.int16))[valid].reshape(-1))
+        h.append(np.abs(cv2.undistort(dist_img, Kh, D, newCameraMatrix=K).astype(np.int16) - ref.astype(np.int16))[valid].reshape(-1))
+    d, h = np.concatenate(d), np.concatenate(h)
+    fl = _bilinear_floor(ref)
+    return {"mean_abs": float(d.mean()), "median": float(np.median(d)), "p95": float(np.percentile(d, 95)),
+            "p99": float(np.percentile(d, 99)), "mean_abs_if_principal_point_off_by_half_pixel": float(h.mean()),
+            "bilinear_floor_mean_abs": float(fl.mean())}
 
 
 def check_undistort(sc, step=None, border=3):

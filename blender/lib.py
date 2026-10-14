@@ -296,6 +296,15 @@ def join(objs, name):
     return o
 
 
+def shift_origin(obj, world_point):
+    """Move obj's origin to world_point without moving its geometry."""
+    wp = Vector(world_point)
+    local = obj.matrix_world.inverted() @ wp
+    obj.data.transform(Matrix.Translation(-local))
+    obj.location = obj.matrix_world @ local
+    return obj
+
+
 def empty(ctx, name, location=(0, 0, 0), coll="static"):
     e = bpy.data.objects.new(name, None)
     ctx.coll[coll].objects.link(e)
@@ -540,8 +549,8 @@ def add_clock(ctx, p0, velocity, radius, strength=1.0):
 
 # ---------------------------------------------------------------- character
 
-def dress_material(ctx, name, legs_tex="denim_fabric", shirt_tex="quatrefoil_jacquard_fabric",
-                   skin=(0.62, 0.42, 0.32), shirt_tint=(0.55, 0.25, 0.2)):
+def dress_material(ctx, name, legs_tex="denim_fabric", shirt_tex="fabric_pattern_07",
+                   skin=(0.62, 0.42, 0.32), shirt_tint=None):
     """The CC0 character ships untextured; give it trousers / shirt / skin bands by
     rest-pose height (Generated z) so it is textured enough for feature matching."""
     m = _new_material(name)

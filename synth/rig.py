@@ -44,7 +44,7 @@ def camera_names(cfg):
 def _positions(rig, rng):
     """Camera centres and look-at targets for each rig type."""
     n = rig["n"]
-    tgt = np.array(rig["target"], float)
+    tgt = np.array(rig.get("target", [0.0, 0.0, 0.0]), float)
     out = []
     if rig["type"] == "arc":
         a0, a1 = rig["azimuth_deg"]

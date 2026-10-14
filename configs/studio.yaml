@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# studio: selfcap layout. 24 cameras on a ring at two heights (12 low, 12 high, interleaved),
+# 5-coefficient distortion with k3 = 0, cameras deliberately unsynchronized:
+# frame n of camera c shows t = n/fps - offset_c, offsets in [-0.03, 0.03] s (sync.json).
+name: studio
+builder: studio
+seq: studio
+width: 1920
+height: 1080
+fps: 60
+frames: 600
+preroll_seconds: 1.0
+names: four_digit
+rig:
+  type: ring
+  n: 24
+  seed: 303
+  heights: [1.0, 2.3]
+  targets: [[0.0, 0.0, 0.95], [0.0, 0.0, 0.85]]
+  radius: 4.0
+  azimuth0_deg: 7.5
+  azimuth_jitter_deg: 1.5
+  radius_jitter: 0.15
+  height_jitter: 0.05
+  target_jitter: 0.12
+  roll_jitter_deg: 0.8
+lens:
+  hfov_deg: 64
+  focal_jitter: 0.01
+  principal_offset_px: [-2.5, 3.0]
+  principal_jitter_px: 4.0
+  distortion: [-0.1, 0.045, 0.0002, -0.00015, 0.0]
+  distortion_jitter: [0.15, 0.15, 0.5, 0.5, 0.0]
+sync:
+  seed: 404
+  range: 0.03
+  test_camera: "0007"
+render:
+  samples: 32
+  denoise: true
+  denoise_gpu: false
+  marker_samples: 384
+layouts:
+  - {layout: selfcap, frames: distorted}
+validation_frame_step: 50
+markers:
+  box: [[-5.6, 5.6], [-5.6, 5.6], [0.05, 3.8]]
+  radius: 0.012
+  count: 320
+  min_sep_px: 36
+  seed: 13
+clock:
+  p0: [-0.8, -0.3, 1.6]
+  velocity: [0.16, 0.06, 0.0]
+  radius: 0.012

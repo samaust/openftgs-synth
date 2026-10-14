@@ -181,6 +181,9 @@ def load_done(sc):
     return set(open(p).read().split()) if os.path.exists(p) else set()
 
 
+job_seconds = {}  # job id -> Blender render+save wall time (seconds), filled by run_blender
+
+
 def run_blender(sc, jobs, tag, on_done=None):
     p = os.path.join(sc.work, f"jobs_{tag}.json")
     json.dump(blender_spec(sc, jobs), open(p, "w"))
@@ -192,8 +195,11 @@ def run_blender(sc, jobs, tag, on_done=None):
     for line in proc.stdout:
         log.write(line)
         if line.startswith("JOBDONE "):
+            parts = line.split()
             if on_done:
-                on_done(line.split()[1])
+                on_done(parts[1])
+            if len(parts) > 2:
+                job_seconds[parts[1]] = float(parts[2])
         elif line.startswith("RENDER_OK"):
             ok = True
     proc.wait()
