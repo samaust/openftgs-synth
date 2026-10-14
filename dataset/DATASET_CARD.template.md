@@ -144,9 +144,10 @@ scene before release.
    (distorted frames). A half-pixel convention error would show as about 0.5 px.
 2. **Undistort round trip:** `cv2.undistort(distorted, K, D)` against the pinhole frames,
    excluding a 3 px border. Also computed with the principal point moved by 0.5 px, to show
-   the test would catch a convention error. `tiny*` scenes at 160x120 are judged against the
-   bilinear interpolation floor at that resolution, since cv2's bilinear resampling alone
-   adds more than a few levels on their textures.
+   the test would catch a convention error. cv2's bilinear resampling alone costs a few
+   levels, so the pass rule is relative to a bilinear shift-and-back of the same frames:
+   median <= max(1, floor median), mean <= floor mean, and the half-pixel-shifted error at
+   least 1.2x larger.
 3. **poses_bounds:** each row converted with `[c1, c0, -c2]` reproduces the ground-truth
    world-to-camera pose to 1e-9.
 4. **YAML read-back:** `cv2.FileStorage` reads back K, D, H, W, ccm, R, Rot and T exactly;

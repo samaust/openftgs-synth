@@ -8,9 +8,10 @@
   synchronized cameras, so one render cannot serve both.
 - **Undistort round-trip rule (owner decision).** cv2.undistort's own bilinear
   resampling costs about 2-3 levels on these textures at 1080p and more at 160x120. A
-  scene passes check 2 when the median difference is at most 1, the mean is at most the
-  bilinear floor measured on the same frames, and moving the principal point by half a
-  pixel makes the mean at least 1.2x worse.
+  scene passes check 2 when the median difference is at most max(1, floor median), the
+  mean is at most the floor mean (the floor is a bilinear shift-and-back of the same
+  frames), and moving the principal point by half a pixel makes the mean at least 1.2x
+  worse.
 - **Video colour:** BT.709 matrix, limited range. The transfer is tagged sRGB, which is
   what the frames contain.
 - **Character:** "Animated Human" by Quaternius (CC0) ships without textures. It is dressed

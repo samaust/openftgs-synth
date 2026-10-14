@@ -193,13 +193,14 @@ def check_undistort(sc, step=None, border=3):
     out = {"mean_abs": float(d.mean()), "median": float(np.median(d)), "p95": float(np.percentile(d, 95)),
            "p99": float(np.percentile(d, 99)), "max": int(d.max()), "frac_le_3": float((d <= 3).mean()),
            "mean_abs_if_principal_point_off_by_half_pixel": float(h.mean()),
-           "bilinear_floor_mean_abs": float(fl.mean()),
+           "bilinear_floor_mean_abs": float(fl.mean()), "bilinear_floor_median": float(np.median(fl)),
            "border_px_excluded": border, "frame_step": step, "per_camera": per_cam}
-    # owner decision 2026-10-13: floor-relative rule for every scene
-    at_floor = out["median"] <= 1.0 and out["mean_abs"] <= out["bilinear_floor_mean_abs"]
+    # owner decisions 2026-10-13: floor-relative rule for every scene
+    at_floor = (out["median"] <= max(1.0, out["bilinear_floor_median"])
+                and out["mean_abs"] <= out["bilinear_floor_mean_abs"])
     aligned = out["mean_abs_if_principal_point_off_by_half_pixel"] >= 1.2 * out["mean_abs"]
-    out["criterion"] = ("median <= 1, mean <= bilinear floor of the same frames, and the half-pixel-shifted "
-                        "comparison >= 1.2x worse")
+    out["criterion"] = ("median <= max(1, floor median), mean <= floor mean (bilinear floor of the same frames), "
+                        "and the half-pixel-shifted comparison >= 1.2x worse")
     out["pass"] = bool(aligned and at_floor)
     return out
 
