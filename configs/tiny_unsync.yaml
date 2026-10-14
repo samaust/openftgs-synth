@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# tiny in the selfcap layout: same scene, rig and lens as `tiny`, but each camera is
+# rendered at its own times t = n/fps - offset_c (offsets in [-0.03, 0.03] s).
+extends: tiny.yaml
+name: tiny_unsync
+seq: tiny_unsync
+sync:
+  seed: 21
+  range: 0.03
+  test_camera: "0002"
+layouts:
+  - {layout: selfcap, frames: distorted}

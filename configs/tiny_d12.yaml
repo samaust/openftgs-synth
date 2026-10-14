@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# tiny with the 12-coefficient model (rational + thin prism s1..s4), opencv-yaml layout.
+extends: tiny.yaml
+name: tiny_d12
+lens:
+  principal_offset_px: [-1.1, 0.7]
+  principal_jitter_px: 0.6
+  distortion: [0.11, -0.02, 0.0003, -0.0002, 0.001, 0.26, -0.015, 0.002, 0.0012, -0.0002, -0.0009, 0.0001]
+  distortion_jitter: [0.1, 0.1, 0.5, 0.5, 0.2, 0.1, 0.1, 0.2, 0.2, 0.2, 0.2, 0.2]
+layouts:
+  - {layout: enerf_outdoor, frames: distorted}

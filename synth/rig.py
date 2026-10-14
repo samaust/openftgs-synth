@@ -14,9 +14,21 @@ from . import distortion as dist
 SS = 2  # supersampling factor of the oversized pinhole render
 
 
+def _merge(base, over):
+    out = dict(base)
+    for k, v in over.items():
+        out[k] = _merge(base[k], v) if isinstance(v, dict) and isinstance(base.get(k), dict) else v
+    return out
+
+
 def load_config(path):
+    """Load a scene config; `extends: other.yaml` deep-merges onto another config."""
+    import os
     with open(path) as f:
         cfg = yaml.safe_load(f)
+    if "extends" in cfg:
+        base = load_config(os.path.join(os.path.dirname(path), cfg.pop("extends")))
+        cfg = _merge(base, cfg)
     cfg.setdefault("supersample", SS)
     return cfg
 

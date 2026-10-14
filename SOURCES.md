@@ -18,3 +18,17 @@ The file formats were implemented from the written task specification only.
 | 2026-10-13 | https://github.com/Poly-Haven/Public-API, .../blob/master/ToS.md, https://api.polyhaven.com/, https://api.polyhaven.com/api-docs/swagger.json | API endpoints (/assets, /info, /files) and terms: free for any use; requests must carry an identifying User-Agent; the credit clause applies to apps showing live API content, not to downloaded CC0 assets. Used only to find direct file URLs. |
 | 2026-10-13 | https://ambientcg.com/license -> https://docs.ambientcg.com/license/ | ambientCG assets are CC0 1.0. |
 | 2026-10-13 | https://www.kenney.nl/support | Kenney assets are CC0. |
+| 2026-10-13 | https://poly.pizza/m/c3Ibh9I3udk, https://poly.pizza/u/Quaternius, https://quaternius.com/faq.html, https://opengameart.org/content/animated-human-low-poly (plus Quaternius pack pages and poly.pizza search pages listed in ASSETS.md notes) | Chose the CC0 "Animated Human" by Quaternius; license wording verified on the asset page and the Quaternius FAQ. Clip names (Walk, Run, Idle, ...) were read from the GLB itself. |
+| 2026-10-13 | https://static.poly.pizza/170235d2-cdeb-4cb2-a82f-4828585138fe.glb | The character file (CC0). |
+| 2026-10-13 | https://polyhaven.com/a/<id> for the 27 Poly Haven assets in assets.yaml | Each page shows the CC0 license badge and the author credits recorded in ASSETS.md. |
+| 2026-10-13 | https://api.polyhaven.com/assets, /info/<id>, /files/<id> | Asset ids, authors and direct dl.polyhaven.org file URLs + MD5s (recorded in assets.yaml). |
+| 2026-10-13 | dl.polyhaven.org files listed in assets.yaml | The CC0 HDRIs, textures and models themselves (SHA-256 in assets.yaml / ASSETS.md). |
+| 2026-10-13 | https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt | CC0 1.0 legal code, copied verbatim to dataset/LICENSE (SHA-256 a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499). |
+
+## Facts measured here rather than taken from documentation
+
+- Blender 5.2.2 camera model (tools/probe_blender_camera.py): f_px = lens/36*W with a horizontal sensor fit; cx = W/2 - shift_x*W, cy = H/2 + shift_y*W (continuous pixels); Cycles samples pixel (i, j) around (i+0.5, j+0.5).
+- `cycles.use_pixel_jitter` defaults to False in 5.2; setting it to True displaced rendered markers by up to ~1 px, so it is left False.
+- Keyframes inserted from Python ignore the keyframe-interpolation user preference in 5.2; interpolation is set on each key explicitly.
+- Camera Data "View Z Depth" is planar camera-space z (checked against an analytic tilted plane to 7e-6 m).
+- The opencv-python-headless 5.0 wheel is built without OpenEXR; 4.14 is used.

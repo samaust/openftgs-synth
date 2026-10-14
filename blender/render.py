@@ -105,7 +105,7 @@ class Configurator:
             cy.denoising_input_passes = "RGB_ALBEDO_NORMAL"
             cy.denoising_prefilter = "ACCURATE"
             cy.denoising_quality = "HIGH"
-            cy.denoising_use_gpu = True
+            cy.denoising_use_gpu = bool(self.r.get("denoise_gpu", True))
             cy.pixel_filter_type = "BLACKMAN_HARRIS"
             cy.filter_width = 1.5
             cy.use_pixel_jitter = False  # 5.2 default; True was measured to displace the image by up to ~1 px

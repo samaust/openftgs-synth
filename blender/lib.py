@@ -540,6 +540,67 @@ def add_clock(ctx, p0, velocity, radius, strength=1.0):
 
 # ---------------------------------------------------------------- character
 
+def dress_material(ctx, name, legs_tex="denim_fabric", shirt_tex="quatrefoil_jacquard_fabric",
+                   skin=(0.62, 0.42, 0.32), shirt_tint=(0.55, 0.25, 0.2)):
+    """The CC0 character ships untextured; give it trousers / shirt / skin bands by
+    rest-pose height (Generated z) so it is textured enough for feature matching."""
+    m = _new_material(name)
+    nt = m.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
+    tc = nt.nodes.new("ShaderNodeTexCoord")
+    sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    nt.links.new(tc.outputs["Generated"], sep.inputs[0])
+    mp = nt.nodes.new("ShaderNodeMapping")
+    mp.inputs["Scale"].default_value = (6.0, 6.0, 6.0)
+    nt.links.new(tc.outputs["Generated"], mp.inputs["Vector"])
+
+    def tex(tex_id, tint=None):
+        diff = _texture_files(ctx, tex_id)[0]
+        n = nt.nodes.new("ShaderNodeTexImage")
+        n.image = bpy.data.images.load(diff, check_existing=True)
+        n.projection = "BOX"
+        n.projection_blend = 0.3
+        nt.links.new(mp.outputs["Vector"], n.inputs["Vector"])
+        out = n.outputs["Color"]
+        if tint:
+            mix = nt.nodes.new("ShaderNodeMix")
+            mix.data_type = "RGBA"
+            mix.blend_type = "MULTIPLY"
+            mix.inputs["Factor"].default_value = 1.0
+            mix.inputs["B"].default_value = tuple(tint) + (1.0,)
+            nt.links.new(out, mix.inputs["A"])
+            out = mix.outputs["Result"]
+        return out
+    legs = tex(legs_tex)
+    shirt = tex(shirt_tex, shirt_tint)
+    noise = nt.nodes.new("ShaderNodeTexNoise")
+    noise.inputs["Scale"].default_value = 40.0
+    ramp = nt.nodes.new("ShaderNodeValToRGB")
+    ramp.color_ramp.elements[0].color = tuple(c * 0.75 for c in skin) + (1.0,)
+    ramp.color_ramp.elements[1].color = tuple(skin) + (1.0,)
+    nt.links.new(noise.outputs["Fac"], ramp.inputs["Fac"])
+
+    def step(edge):
+        n = nt.nodes.new("ShaderNodeMath")
+        n.operation = "GREATER_THAN"
+        n.inputs[1].default_value = edge
+        nt.links.new(sep.outputs["Z"], n.inputs[0])
+        return n.outputs[0]
+    m1 = nt.nodes.new("ShaderNodeMix")
+    m1.data_type = "RGBA"
+    nt.links.new(step(0.46), m1.inputs["Factor"])
+    nt.links.new(legs, m1.inputs["A"])
+    nt.links.new(shirt, m1.inputs["B"])
+    m2 = nt.nodes.new("ShaderNodeMix")
+    m2.data_type = "RGBA"
+    nt.links.new(step(0.83), m2.inputs["Factor"])
+    nt.links.new(m1.outputs["Result"], m2.inputs["A"])
+    nt.links.new(ramp.outputs["Color"], m2.inputs["B"])
+    nt.links.new(m2.outputs["Result"], bsdf.inputs["Base Color"])
+    bsdf.inputs["Roughness"].default_value = 0.7
+    bsdf.inputs["Metallic"].default_value = 0.0
+    return m
+
 def character(ctx, asset_id, height, path_fn, t0, t1, step, clip="Walk", rot_offset_deg=0.0):
     """Import a rigged glTF character, loop `clip`, and move its root along path_fn(t) ->
     (location, heading_deg)."""
@@ -568,7 +629,10 @@ def character(ctx, asset_id, height, path_fn, t0, t1, step, clip="Walk", rot_off
         strip.action_slot = act.slots[0]
     strip.repeat = math.ceil((ctx.frame_end + 20 - start) / length)
     strip.extrapolation = "HOLD"
+    mat = dress_material(ctx, "character_dress")
     for o in meshes:
+        o.data.materials.clear()
+        o.data.materials.append(mat)
         ctx._pass += 1
         o.pass_index = ctx._pass
         ctx.dynamic_names.append(o.name)

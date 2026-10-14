@@ -32,6 +32,7 @@ lens:
 render:
   samples: 64
   denoise: true
+  denoise_gpu: false        # CPU OIDN: repeat renders differ by <= 1/65535 (GPU OIDN: up to 115/65535)
   marker_samples: 512
 layouts:
   - {layout: n3dv, frames: pinhole}
