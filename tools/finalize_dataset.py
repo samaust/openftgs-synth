@@ -26,6 +26,17 @@ def sha256(p):
     return h.hexdigest()
 
 
+def render_hours(sc):
+    """Sum of the per-job render seconds that render.py printed (JOBDONE id seconds)."""
+    import glob
+    t = 0.0
+    for f in glob.glob(os.path.join(sc.work, "render_*.log")):
+        for line in open(f, errors="replace"):
+            if line.startswith("JOBDONE"):
+                t += float(line.split()[2])
+    return t / 3600
+
+
 def scenes_table(scenes):
     L = ["| Scene | Layouts (frames) | Cameras | Size | fps | Frames | Lens | Rig | Notes |",
          "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
@@ -84,6 +95,8 @@ def main(cfgs):
     r = scenes[0].cfg["render"] if scenes else {}
     rs = ", ".join(f"`{sc.name}`: {sc.cfg['render']['samples']} spp at 2x" for sc in scenes)
     rs += "; OpenImageDenoise (albedo + normal, prefilter accurate, quality high, GPU); seed 0; clamp indirect 10"
+    rs += (". Blender render time on one RTX 4090 (sum of jobs, excluding post-processing and encoding): "
+           + ", ".join(f"`{sc.name}` {render_hours(sc):.1f} h" for sc in scenes if render_hours(sc) >= 0.05) + ".")
     card = open(os.path.join(REPO, "dataset", "DATASET_CARD.template.md")).read()
     card = card.replace("{VERSION}", ver).replace("{BLENDER}", "5.2.2 LTS")
     card = card.replace("{SCENES_TABLE}", scenes_table(scenes)).replace("{VALIDATION_TABLE}", validation_table(scenes))
