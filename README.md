@@ -52,7 +52,7 @@ It runs one Blender process per camera.
 | `synth/` | venv side: camera conventions, rigs, distortion and its inverse, image ops, post-processing, encoding, packaging |
 | `validate/` | the six release checks |
 | `tools/` | CLI, asset fetcher, probes, timing, finalizer |
-| `dataset/` | dataset LICENSE (CC0 text), VERSION, card template, decision notes |
+| `dataset/` | dataset LICENSE (CC0 text), VERSION, card template, decision notes, and the generated `DATASET_CARD.md` of the released data |
 
 ## Conventions (measured, and tested by `validate/`)
 
