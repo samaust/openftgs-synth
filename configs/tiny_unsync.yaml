@@ -1,8 +1,12 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # tiny in the selfcap layout: same scene, rig and lens as `tiny`, but each camera is
 # rendered at its own times t = n/fps - offset_c (offsets in [-0.03, 0.03] s).
+# Since 0.1.1 it runs at 60 fps, the selfcap frame rate used by `studio`. The tiny scene's
+# events are defined in frames, so the 12 frames still contain the burst and the
+# appearing object (the clip spans 0.2 s).
 extends: tiny.yaml
 name: tiny_unsync
+fps: 60
 seq: tiny_unsync
 sync:
   seed: 21

@@ -32,7 +32,7 @@ walking CC0 character ("Animated Human" by Quaternius, dressed with CC0 fabric t
 
 `tiny` is a smoke test. It is written as `n3dv/tiny` (pinhole frames) and
 `enerf_outdoor/tiny` (5-coefficient distortion) from one render. Its selfcap form is the
-separate scene `tiny_unsync` (same scene, rig and lens, unsynchronized cameras).
+separate scene `tiny_unsync` (same scene, rig and lens, unsynchronized cameras, 60 fps).
 `tiny_d8` and `tiny_d12` repeat `tiny` with the 8- and 12-coefficient models and an
 off-centre principal point.
 
@@ -161,6 +161,13 @@ scene before release.
 ## Test camera
 
 {TEST_CAMERAS}
+
+## Changes
+
+- **0.1.1:** `tiny_unsync` is re-rendered at 60 fps (was 30 fps). It has the same 12
+  frames, cameras, lens and sync offsets. Its scene events are defined in frames, so the
+  clip now spans 0.2 s. No other scene changed.
+- **0.1.0:** first release.
 
 ## Decisions and known limitations
 
